@@ -1,0 +1,17 @@
+<div class="container p-5">
+  <h1>New Game</h1>
+  <div class="row justify-content-between">
+    <% @letters.each do |letter|  %>
+      <h2 class="col-1 border text-center m-3 py-3 bg-dark text-white rounded">
+        <%= letter %>
+      </h2>
+    <% end %>
+  </div>
+  <form action="/score" method="POST" class="form-group">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <%= hidden_field_tag :score, @score %>
+    <input type="text" name="word" class="form-control">
+    <input type="submit" name="submit" id="button" class="btn btn-warning w-100 mt-3" value="Enter!">
+  </form>
+</div>

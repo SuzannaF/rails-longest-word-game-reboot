@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @included %>
+    <% if @english_word %>
+      <h2><strong>Congratulations!</strong> <%= @word %> is a valid English word.</h2>
+      <h2>Your score is now <%= @score %> </h2>
+      <% else %>
+        <h2><strong>Sorry</strong> but <%= @word %> is not a valid English word...</h2>
+    <% end %>
+    <% else %>
+      <h2><strong>Sorry</strong> but <%= @word %> can't be built out of <%= @letters.join(", ") %> </h2>
+  <% end  %>
+  <%= link_to "Play again!", new_path %>
+</div>
